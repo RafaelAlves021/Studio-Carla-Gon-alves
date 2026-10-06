@@ -809,14 +809,50 @@ header.scrolled {
   text-decoration: underline;
 }
 
-/* FOOTER */
+/* FOOTER COM ASSINATURA DE CRÉDITOS */
 footer {
   background: #080706;
   color: var(--text-dim);
   text-align: center;
-  padding: 2.2rem 0;
+  padding: 2.5rem 0 2rem;
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-desc {
+  font-size: 0.78rem;
+}
+
+.developer-credit {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(207, 163, 141, 0.12);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.dev-heart {
+  color: #e25555;
+  font-size: 0.85rem;
+  margin: 0 2px;
+}
+
+.dev-link {
+  color: var(--rose-gold-light);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.dev-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* BOTAO FLUTUANTE WHATSAPP */
