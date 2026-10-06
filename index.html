@@ -9,543 +9,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <!-- Font Awesome para Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --primary: #c49581;
-      --primary-dark: #a87965;
-      --primary-light: #fbf0ea;
-      --secondary: #d4af37;
-      --dark: #2c2724;
-      --light: #fffaf7;
-      --light-gray: #f7f1ed;
-      --card-bg: #ffffff;
-      --text: #594f4a;
-      --border-radius: 16px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: var(--text);
-      background-color: var(--light);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Playfair Display', serif;
-      color: var(--dark);
-      font-weight: 700;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 250, 247, 0.96);
-      backdrop-filter: blur(10px);
-      z-index: 99;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.04);
-      padding: 1rem 0;
-    }
-
-    .nav-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.35rem;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: var(--dark);
-      letter-spacing: 0.5px;
-    }
-
-    .logo span {
-      color: var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .nav-links a.nav-item {
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: var(--dark);
-      transition: var(--transition);
-    }
-
-    .nav-links a.nav-item:hover {
-      color: var(--primary);
-    }
-
-    .btn-cta-nav {
-      background: var(--primary);
-      color: #fff;
-      padding: 0.6rem 1.4rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: var(--transition);
-    }
-
-    .btn-cta-nav:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(196, 149, 129, 0.35);
-    }
-
-    /* HERO */
-    .hero {
-      padding: 4.5rem 0 3.5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fbf0ea;
-      color: var(--primary-dark);
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1.2rem;
-    }
-
-    .badge i {
-      color: #e2a03f;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      max-width: 540px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .btn-primary {
-      background: #25d366;
-      color: #fff;
-      padding: 0.95rem 1.8rem;
-      border-radius: 50px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
-      transition: var(--transition);
-    }
-
-    .btn-primary:hover {
-      background: #20ba59;
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      border: 2px solid var(--primary);
-      color: var(--primary-dark);
-      padding: 0.85rem 1.6rem;
-      border-radius: 50px;
-      font-size: 0.98rem;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .btn-outline:hover {
-      background: var(--primary);
-      color: white;
-    }
-
-    .hero-card {
-      background: #fff;
-      padding: 2.2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-      border: 1px solid rgba(196, 149, 129, 0.18);
-    }
-
-    .hero-card .rating-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .rating-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--dark);
-      font-family: 'Playfair Display', serif;
-    }
-
-    .stars {
-      color: #ffb703;
-      font-size: 1.1rem;
-    }
-
-    .hero-info-list {
-      list-style: none;
-    }
-
-    .hero-info-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 1rem;
-      font-size: 0.92rem;
-    }
-
-    .hero-info-list i {
-      color: var(--primary);
-      margin-top: 4px;
-      font-size: 1.1rem;
-    }
-
-    /* SEÇÃO DE PREÇOS COM A COLORACAO ORIGINAL (CLARA E HARMONICA) */
-    .pricing-section {
-      background: var(--light-gray);
-      padding: 5.5rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.4rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .section-title p {
-      color: #6d635e;
-    }
-
-    .price-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-      gap: 2rem;
-    }
-
-    .price-column {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      border: 1px solid rgba(196, 149, 129, 0.2);
-      padding: 2.4rem 1.8rem;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      transition: var(--transition);
-    }
-
-    .price-column:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 36px rgba(196, 149, 129, 0.18);
-    }
-
-    .price-column-header {
-      text-align: center;
-      padding-bottom: 1.2rem;
-      margin-bottom: 1.4rem;
-      border-bottom: 2px solid var(--primary-light);
-    }
-
-    .price-column-header h3 {
-      font-size: 1.45rem;
-      color: var(--primary-dark);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .price-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.15rem;
-      flex-grow: 1;
-    }
-
-    .price-item {
-      display: flex;
-      flex-direction: column;
-      border-bottom: 1px dashed rgba(196, 149, 129, 0.3);
-      padding-bottom: 0.85rem;
-    }
-
-    .price-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 10px;
-    }
-
-    .item-name {
-      font-weight: 600;
-      font-size: 0.98rem;
-      color: var(--dark);
-    }
-
-    .item-val {
-      font-weight: 700;
-      color: var(--primary-dark);
-      white-space: nowrap;
-      font-size: 1.05rem;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .item-sub {
-      font-size: 0.82rem;
-      color: #7d726b;
-      margin-top: 3px;
-    }
-
-    .item-sub em {
-      color: var(--primary);
-      font-style: normal;
-      font-weight: 600;
-    }
-
-    .price-footer-cta {
-      margin-top: 2rem;
-      text-align: center;
-    }
-
-    .btn-price-wa {
-      display: block;
-      width: 100%;
-      background: #fffaf7;
-      border: 1.5px solid var(--primary);
-      color: var(--primary-dark);
-      padding: 0.75rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .btn-price-wa:hover {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    /* BANNER COMPLEMENTAR: DEPILAÇÃO & LOJA */
-    .depilacao-banner {
-      margin-top: 2.5rem;
-      background: #ffffff;
-      border: 1px solid rgba(196, 149, 129, 0.25);
-      border-radius: var(--border-radius);
-      padding: 2.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.03);
-    }
-
-    .depilacao-banner h4 {
-      color: var(--primary-dark);
-      font-size: 1.35rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .depilacao-banner p {
-      font-size: 0.92rem;
-      color: var(--text);
-      max-width: 720px;
-    }
-
-    /* DEPOIMENTOS */
-    .testimonials {
-      padding: 5rem 0;
-      background: #fff;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .testimonial-card {
-      background: #fffaf7;
-      padding: 2.2rem;
-      border-radius: var(--border-radius);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.03);
-      border: 1px solid rgba(196, 149, 129, 0.15);
-      position: relative;
-    }
-
-    .testimonial-card::before {
-      content: "“";
-      font-family: 'Playfair Display', serif;
-      position: absolute;
-      top: 15px;
-      right: 25px;
-      font-size: 4rem;
-      color: #eeddd5;
-      line-height: 1;
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-      color: #4b413c;
-    }
-
-    .client-name {
-      font-weight: 600;
-      color: var(--dark);
-      font-size: 0.9rem;
-    }
-
-    /* CONTATO E LOCALIZAÇÃO */
-    .contact {
-      padding: 5rem 0;
-      background: var(--light-gray);
-    }
-
-    .contact-box {
-      background: linear-gradient(135deg, #372f2b 0%, #201a18 100%);
-      color: #fff;
-      border-radius: 24px;
-      padding: 3.5rem 3rem;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .contact-box h2 {
-      color: #fff;
-      font-size: 2.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-box p {
-      color: #c7bcb6;
-      margin-bottom: 2rem;
-    }
-
-    .contact-items {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .c-item {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 0.95rem;
-    }
-
-    .c-item i {
-      font-size: 1.3rem;
-      color: var(--primary);
-    }
-
-    .c-item a {
-      color: #fff;
-      text-decoration: underline;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #181413;
-      color: #92847e;
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.85rem;
-    }
-
-    /* BOTAO FLUTUANTE WHATSAPP */
-    .float-wa {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
-      z-index: 100;
-      transition: var(--transition);
-    }
-
-    .float-wa:hover {
-      transform: scale(1.1);
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 992px) {
-      .hero-grid, .contact-box {
-        grid-template-columns: 1fr;
-      }
-      .nav-links .nav-item {
-        display: none;
-      }
-      .depilacao-banner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  
+  <!-- Ficheiro CSS Externo -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -559,7 +28,8 @@
     <div class="container nav-content">
       <div class="logo">Studio Carla <span>Gonçalves</span></div>
       <div class="nav-links">
-        <a href="#tabela-precos" class="nav-item">Tabela de Preços</a>
+        <a href="#procedimentos" class="nav-item">Procedimentos</a>
+        <a href="#galeria" class="nav-item">Resultados</a>
         <a href="#depoimentos" class="nav-item">Avaliações</a>
         <a href="#contato" class="nav-item">Localização</a>
         <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="btn-cta-nav">
@@ -572,34 +42,19 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-text-side">
         <div class="badge">
           <i class="fas fa-star"></i> 5.0 estrelas no Google (Magalhães Bastos - RJ)
         </div>
         <h1>Realce sua beleza natural com técnica e exclusividade</h1>
-        <p>Especialistas em sobrancelhas, extensão de cílios, micropigmentação e estética corporal. Atendimento individualizado em um ambiente sofisticado e acolhedor.</p>
+        <p>Especialistas em sobrancelhas, extensão de cílios, micropigmentação e estética corporal. Atendimento individualizado sob medida em um ambiente sofisticado e acolhedor.</p>
         <div class="hero-actions">
-          <a href="#tabela-precos" class="btn-outline">Consultar Preços</a>
-          <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="btn-primary">
+          <a href="#galeria" class="btn-outline">Ver Resultados Reais</a>
+          <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20servi%C3%A7os%20e%20agendar%20um%20hor%C3%A1rio." target="_blank" class="btn-primary">
             <i class="fab fa-whatsapp"></i> Agende pelo WhatsApp
           </a>
         </div>
-      </div>
 
-      <div class="hero-card">
-        <div class="rating-box">
-          <div class="rating-number">5.0</div>
-          <div>
-            <div class="stars">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </div>
-            <small>Avaliação máxima no Google</small>
-          </div>
-        </div>
         <ul class="hero-info-list">
           <li>
             <i class="fas fa-map-marker-alt"></i>
@@ -609,21 +64,29 @@
             <i class="fas fa-clock"></i>
             <span>Atendimento até 17:00 | Terça a Sábado</span>
           </li>
-          <li>
-            <i class="fas fa-gem"></i>
-            <span>Ambiente aconchegante, biossegurança e loja de maquiagem completa</span>
-          </li>
         </ul>
+      </div>
+
+      <!-- FOTO PRINCIPAL -->
+      <div class="hero-image-wrapper">
+        <div class="hero-image-frame">
+          <img src="img/carla-goncalves.jpg" alt="Carla Gonçalves - Studio Carla Gonçalves" class="hero-img">
+
+          <div class="hero-nameplate">
+            <h3>Carla Gonçalves</h3>
+            <span>Beleza • Estética • Autenticidade</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SEÇÃO DE PREÇOS NA PALETA ORIGINAL CLARA -->
-  <section class="pricing-section" id="tabela-precos">
+  <!-- SEÇÃO DE PROCEDIMENTOS (CATÁLOGO OFICIAL) -->
+  <section class="pricing-section" id="procedimentos">
     <div class="container">
       <div class="section-title">
-        <h2>Cardápio de Serviços & Valores</h2>
-        <p>Confira nossa tabela completa de procedimentos. Toque no botão para garantir seu horário com nossa equipe.</p>
+        <h2>Catálogo de Procedimentos</h2>
+        <p>Conheça os nossos serviços especializados de Cílios, Sobrancelhas e Lábios. Clique no botão para tirar dúvidas ou agendar seu atendimento.</p>
       </div>
 
       <div class="price-grid">
@@ -636,62 +99,54 @@
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Glow</span>
-                <span class="item-val">R$ 120,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 90,00</em></div>
+              <div class="item-sub">Aplicação inicial & Manutenção periódica</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Brasileiro</span>
-                <span class="item-val">R$ 120,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 90,00</em></div>
+              <div class="item-sub">Volume marcante com acabamento delicado</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Egípcio</span>
-                <span class="item-val">R$ 130,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 100,00</em></div>
+              <div class="item-sub">Densidade estruturada e olhar profundo</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Fox</span>
-                <span class="item-val">R$ 130,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 100,00</em></div>
+              <div class="item-sub">Alongamento estratégico no canto externo dos olhos</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Premium</span>
-                <span class="item-val">R$ 140,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 110,00</em></div>
+              <div class="item-sub">Fios ultrafinos com retenção prolongada</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Efeito Luxo</span>
-                <span class="item-val">R$ 140,00</span>
               </div>
-              <div class="item-sub">Manutenção: <em>R$ 110,00</em></div>
+              <div class="item-sub">Máximo volume e sofisticação personalizada</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Remoção de Cílios</span>
-                <span class="item-val">R$ 25,00</span>
               </div>
-              <div class="item-sub"><em>*Pago apenas se retirado sem nova colocação ou vindo de outro profissional</em></div>
+              <div class="item-sub">Remoção química segura sem agredir os fios naturais</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Lash Lifting</span>
-                <span class="item-val">R$ 85,00</span>
               </div>
-              <div class="item-sub">Curvatura, hidratação e efeito natural nos fios</div>
+              <div class="item-sub">Curvatura, hidratação e realce dos fios próprios</div>
             </li>
           </ul>
           <div class="price-footer-cta">
-            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20C%C3%ADlios." target="_blank" class="btn-price-wa">
+            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20valores%20e%20agendar%20C%C3%ADlios." target="_blank" class="btn-price-wa">
               <i class="fab fa-whatsapp"></i> Agendar Cílios
             </a>
           </div>
@@ -706,62 +161,54 @@
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Design Personalizado</span>
-                <span class="item-val">R$ 30,00</span>
               </div>
-              <div class="item-sub">Com buço: <em>R$ 45,00</em></div>
+              <div class="item-sub">Mapeamento facial completo <em>(opção com buço)</em></div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Design com Henna</span>
-                <span class="item-val">R$ 40,00</span>
               </div>
-              <div class="item-sub">Com buço: <em>R$ 55,00</em></div>
+              <div class="item-sub">Pigmentação sob medida e definição <em>(opção com buço)</em></div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Brow Lamination</span>
-                <span class="item-val">R$ 85,00</span>
               </div>
-              <div class="item-sub">Alinhamento e volume moderno para os fios naturais</div>
+              <div class="item-sub">Alinhamento e efeito encorpado para os fios naturais</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Reconstrução</span>
-                <span class="item-val">R$ 100,00</span>
               </div>
               <div class="item-sub">Tratamento de falhas e fortalecimento capilar</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Despigmentação Química</span>
-                <span class="item-val">R$ 100,00</span>
               </div>
-              <div class="item-sub">Clareamento seguro de procedimentos antigos</div>
+              <div class="item-sub">Clareamento e remoção segura de pigmentos antigos</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Micropigmentação Shadow</span>
-                <span class="item-val">R$ 250,00</span>
               </div>
-              <div class="item-sub">Retoque opcional: <em>R$ 125,00</em></div>
+              <div class="item-sub">Efeito sombreado aveludado e uniforme</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Micropigmentação Fio a Fio</span>
-                <span class="item-val">R$ 250,00</span>
               </div>
-              <div class="item-sub">Retoque opcional: <em>R$ 125,00</em></div>
+              <div class="item-sub">Fios hiper-realistas desenhados individualmente</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Lash Lifting</span>
-                <span class="item-val">R$ 85,00</span>
               </div>
-              <div class="item-sub">Olhar iluminado e aberto</div>
+              <div class="item-sub">Olhar iluminado e naturalmente aberto</div>
             </li>
           </ul>
           <div class="price-footer-cta">
-            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20para%20Sobrancelhas." target="_blank" class="btn-price-wa">
+            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20valores%20e%20agendar%20Sobrancelhas." target="_blank" class="btn-price-wa">
               <i class="fab fa-whatsapp"></i> Agendar Sobrancelhas
             </a>
           </div>
@@ -776,56 +223,185 @@
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Hidragloss</span>
-                <span class="item-val">R$ 75,00</span>
               </div>
-              <div class="item-sub">Hidratação com ácido hialurônico e viço imediato</div>
+              <div class="item-sub">Super-hidratação com ácido hialurónico e efeito viço</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Micro Efeito Batom</span>
-                <span class="item-val">R$ 260,00</span>
               </div>
-              <div class="item-sub">Retoque opcional: <em>R$ 130,00</em></div>
+              <div class="item-sub">Definição do contorno e cor intensa e sofisticada</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Revitalização Efeito Lip Tint</span>
-                <span class="item-val">R$ 260,00</span>
               </div>
-              <div class="item-sub">Retoque opcional: <em>R$ 130,00</em></div>
+              <div class="item-sub">Aspecto saudável, cor sutil e naturalidade no dia a dia</div>
             </li>
             <li class="price-item">
               <div class="price-main">
                 <span class="item-name">Neutralização Labial</span>
-                <span class="item-val">R$ 260,00</span>
               </div>
-              <div class="item-sub">Retoque opcional: <em>R$ 130,00</em></div>
+              <div class="item-sub">Correção de tons arroxeados ou escurecidos nos lábios</div>
             </li>
           </ul>
           <div class="price-footer-cta" style="margin-top: auto;">
-            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20procedimento%20Labial." target="_blank" class="btn-price-wa">
+            <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20valores%20e%20agendar%20Labial." target="_blank" class="btn-price-wa">
               <i class="fab fa-whatsapp"></i> Agendar Labial
             </a>
           </div>
         </div>
       </div>
 
-      <!-- BANNER DE DEPILAÇÃO A CERA & LOJA -->
+      <!-- BANNER DE DEPILAÇÃO A CERA -->
       <div class="depilacao-banner">
         <div>
-          <h4><i class="fas fa-spa"></i> Depilação Geral a Cera & Loja de Maquiagem</h4>
-          <p>Disponibilizamos também depilação corporal completa e facial com cera hipoalergênica, além de uma vitrine com as melhores marcas de maquiagem para você levar seu produto preferido para casa.</p>
+          <h4><i class="fas fa-spa"></i> Depilação Geral a Cera</h4>
+          <p>Procedimento realizado com cera hipoalergénica e técnica cuidadosa para garantir máxima biossegurança, toque aveludado e redução do desconforto em áreas faciais e corporais.</p>
         </div>
         <div>
-          <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20as%20%C3%A1reas%20de%20depila%C3%A7%C3%A3o%20e%20produtos%20da%20loja." target="_blank" class="btn-primary" style="white-space: nowrap;">
-            <i class="fab fa-whatsapp"></i> Consultar Áreas & Loja
+          <a href="https://wa.me/5521983632240?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20as%20%C3%A1reas%20de%20depila%C3%A7%C3%A3o%20e%20agendar." target="_blank" class="btn-primary" style="white-space: nowrap;">
+            <i class="fab fa-whatsapp"></i> Consultar Áreas & Agendar
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
+  <!-- SEÇÃO: GALERIA DE RESULTADOS REAIS -->
+  <section class="gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-title">
+        <h2>Resultados Reais & Transformações</h2>
+        <p>Veja de perto o padrão de excelência dos nossos atendimentos em nossas clientes.</p>
+      </div>
+
+      <!-- FILTROS -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="sobrancelhas">Sobrancelhas</button>
+        <button class="filter-btn" data-filter="cilios">Cílios</button>
+        <button class="filter-btn" data-filter="labios">Lábios</button>
+      </div>
+
+      <!-- GRID DE FOTOS -->
+      <div class="gallery-grid">
+        <!-- 1. Micropigmentação Fio a Fio -->
+        <div class="gallery-card" data-category="sobrancelhas">
+          <div class="gallery-img-box">
+            <img src="img/micro-fio-a-fio-1.jpg" alt="Micropigmentação Fio a Fio - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Sobrancelhas</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Micropigmentação Fio a Fio</h4>
+            <p>Fios desenhados com naturalidade e definição impecável.</p>
+          </div>
+        </div>
+
+        <!-- 2. Extensão de Cílios -->
+        <div class="gallery-card" data-category="cilios">
+          <div class="gallery-img-box">
+            <img src="img/extensao-cilios-1.jpg" alt="Extensão de Cílios - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Cílios</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Extensão de Cílios</h4>
+            <p>Curvatura alongada, preenchimento e olhar marcante.</p>
+          </div>
+        </div>
+
+        <!-- 3. Lash Lifting -->
+        <div class="gallery-card" data-category="cilios">
+          <div class="gallery-img-box">
+            <img src="img/lash-lifting-1.jpeg" alt="Lash Lifting - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Cílios</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Lash Lifting</h4>
+            <p>Curvatura elegante e hidratação nos próprios fios naturais.</p>
+          </div>
+        </div>
+
+        <!-- 4. Brow Lamination -->
+        <div class="gallery-card" data-category="sobrancelhas">
+          <div class="gallery-img-box">
+            <img src="img/brow-lamination-1.jpg" alt="Brow Lamination - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Sobrancelhas</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Brow Lamination</h4>
+            <p>Alinhamento dos fios naturais para efeito encorpado e moderno.</p>
+          </div>
+        </div>
+
+        <!-- 5. Micropigmentação Labial -->
+        <div class="gallery-card" data-category="labios">
+          <div class="gallery-img-box">
+            <img src="img/micro-labial-1.jpg" alt="Micropigmentação Labial - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Lábios</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Micropigmentação Labial</h4>
+            <p>Cor viva, contorno harmónico e acabamento aveludado.</p>
+          </div>
+        </div>
+
+        <!-- 6. Design com Henna -->
+        <div class="gallery-card" data-category="sobrancelhas">
+          <div class="gallery-img-box">
+            <img src="img/design-henna-1.jpg" alt="Design com Henna - Studio Carla Gonçalves" loading="lazy">
+            <span class="gallery-tag">Sobrancelhas</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Design com Henna</h4>
+            <p>Alinhamento preciso e pigmentação no tom exato da pele.</p>
+          </div>
+        </div>
+
+        <!-- 7. Hidragloss (Antes e Depois) -->
+        <div class="gallery-card" data-category="labios">
+          <div class="gallery-img-box split-box">
+            <div class="split-side">
+              <img src="img/hidragloss-antes.jpg" alt="Hidragloss Antes" loading="lazy">
+              <span class="badge-compare">Antes</span>
+            </div>
+            <div class="split-side">
+              <img src="img/hidragloss-depois.jpg" alt="Hidragloss Depois" loading="lazy">
+              <span class="badge-compare depois">Depois</span>
+            </div>
+            <span class="gallery-tag">Lábios</span>
+            <div class="gallery-overlay">
+              <i class="fas fa-search-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <h4>Hidragloss Labial (Antes & Depois)</h4>
+            <p>Regeneração celular profunda, viço imediato e hidratação com ácido hialurónico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS ATUALIZADOS -->
   <section class="testimonials" id="depoimentos">
     <div class="container">
       <div class="section-title">
@@ -834,22 +410,34 @@
       </div>
 
       <div class="testimonials-grid">
+        <!-- 1. Grasiele Cristina Bhering Esteves -->
         <div class="testimonial-card">
-          <div class="stars" style="margin-bottom: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"A Carla está transformando minha sobrancelha ficar cada vez mais linda!"</p>
-          <span class="client-name">— Avaliação Google (5.0 ★)</span>
+          <div class="stars" style="margin-bottom: 0.8rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Sem dúvidas, um dos melhores espaços de estética que já conheci! A profissional é extremamente competente, comprometida e pontual, além de fazer tudo com muito carinho, dedicação e excelência. Faço meus cílios, depilação e outros procedimentos, e a qualidade e a durabilidade é sempre impecável. O espaço é maravilhoso: super limpo, moderno, aconchegante, climatizado e pensado em cada detalhe para proporcionar uma experiência incrível. Recomendo de olhos fechados!"</p>
+          <span class="client-name">— Grasiele Cristina Bhering Esteves</span>
+          <small class="testimonial-sub">Avaliação no Google (5.0 ★)</small>
         </div>
 
+        <!-- 2. Luane Oliveira -->
         <div class="testimonial-card">
-          <div class="stars" style="margin-bottom: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"Ambiente confortável, atendimento excelente e muita atenção aos detalhes. Recomendo de olhos fechados!"</p>
-          <span class="client-name">— Avaliação Google (5.0 ★)</span>
+          <div class="stars" style="margin-bottom: 0.8rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Excelente serviço, Carla é uma excelente profissional, com produtos de qualidade, prestativa, ambiente limpo, maca de massagem que é tudo, enquanto ela faz os procedimentos você dá uma relaxada na maca. E ainda por cima ela tem mãos de fadas, super indico!"</p>
+          <span class="client-name">— Luane Oliveira</span>
+          <small class="testimonial-sub">Local Guide • Avaliação no Google (5.0 ★)</small>
         </div>
 
+        <!-- 3. Tassyla Soares -->
         <div class="testimonial-card">
-          <div class="stars" style="margin-bottom: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-          <p>"Extensão de cílios impecável e duradoura. Além disso, os produtinhos da loja de make são maravilhosos."</p>
-          <span class="client-name">— Cliente Studio Carla Gonçalves</span>
+          <div class="stars" style="margin-bottom: 0.8rem;">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Excelente trabalho, de ótima qualidade, amei o resultado, e super indico. Muito sucesso!"</p>
+          <span class="client-name">— Tassyla Soares</span>
+          <small class="testimonial-sub">Avaliação no Google (5.0 ★)</small>
         </div>
       </div>
     </div>
@@ -899,9 +487,18 @@
   <footer>
     <div class="container">
       <p>© Studio Carla Gonçalves. Todos os direitos reservados.</p>
-      <p style="margin-top: 5px; font-size: 0.78rem;">Design de Sobrancelhas, Cílios, Micropigmentação & Loja de Maquiagem - Magalhães Bastos, RJ.</p>
+      <p style="margin-top: 5px; font-size: 0.78rem;">Design de Sobrancelhas, Cílios, Micropigmentação & Estética - Magalhães Bastos, RJ.</p>
     </div>
   </footer>
 
+  <!-- MODAL / LIGHTBOX PARA VISUALIZAR FOTOS EXPANDIDAS -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImg">
+    <div id="modalCaption" class="modal-caption"></div>
+  </div>
+
+  <!-- Ficheiro JavaScript Externo -->
+  <script src="script.js"></script>
 </body>
 </html>
