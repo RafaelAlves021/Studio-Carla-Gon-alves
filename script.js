@@ -52,21 +52,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Modal / Lightbox para abrir imagem ampliada
+  // 4. Modal / Lightbox com suporte a cliques independentes no Antes e Depois
   const modal = document.getElementById('galleryModal');
   const modalImg = document.getElementById('modalImg');
   const captionText = document.getElementById('modalCaption');
   const closeModal = document.querySelector('.modal-close');
 
-  const galleryBoxes = document.querySelectorAll('.gallery-img-box');
-  galleryBoxes.forEach(box => {
+  function openLightbox(src, caption) {
+    modal.style.display = 'block';
+    modalImg.src = src;
+    captionText.innerText = caption;
+  }
+
+  // Cards simples (uma foto por card)
+  const singleImageBoxes = document.querySelectorAll('.gallery-img-box:not(.split-box)');
+  singleImageBoxes.forEach(box => {
     box.addEventListener('click', () => {
       const img = box.querySelector('img');
       const cardTitle = box.closest('.gallery-card').querySelector('h4').innerText;
-      
-      modal.style.display = 'block';
-      modalImg.src = img.src;
-      captionText.innerText = cardTitle;
+      openLightbox(img.src, cardTitle);
+    });
+  });
+
+  // Card dividido (Antes e Depois com cliques individuais)
+  const splitSides = document.querySelectorAll('.split-side');
+  splitSides.forEach(side => {
+    side.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const img = side.querySelector('img');
+      const caption = side.getAttribute('data-caption') || 'Hidragloss Labial';
+      openLightbox(img.src, caption);
     });
   });
 
